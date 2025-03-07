@@ -16,12 +16,17 @@
 }
 
 .leftContainer {
-  flex: 3;
+  flex: 1;
   display: flex;
   flex-direction: column;
+  gap: 3rem;
 }
 
 .rightContainer {
-  flex: 1;
+  flex: 0;
+  max-width: 430px;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }

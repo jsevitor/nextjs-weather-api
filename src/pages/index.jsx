@@ -1,11 +1,18 @@
 import { useEffect, useState } from "react";
+import dynamic from "next/dynamic";
 
 import Header from "@/components/header/index.jsx";
 import ForecastMenu from "@/components/forecast_menu/index.jsx";
 import WeeklyForecasts from "@/components/weekly_forecasts/index.jsx";
 import MoonPhase from "@/components/moon_phase/index.jsx";
 
+import "leaflet/dist/leaflet.css";
+
 import styles from "@/styles/Home.module.css";
+
+const Map = dynamic(() => import("@/components/map/index.jsx"), {
+  ssr: false,
+});
 
 const Home = () => {
   const [data, setData] = useState(null);
@@ -39,6 +46,16 @@ const Home = () => {
           <MoonPhase data={data} />
         </div>
       </div>
+
+      <div className={styles.container}>
+        <div className={styles.leftContainer}>
+          <Map />
+        </div>
+        <div className={styles.rightContainer}>
+          <MoonPhase data={data} />
+        </div>
+      </div>
+
       <div>
         {loading ? (
           <p>Carregando dados...</p>
