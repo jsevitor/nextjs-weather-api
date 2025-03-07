@@ -1,0 +1,63 @@
+.container {
+  height: 100%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  border-radius: 1rem;
+  background-color: var(--card-bg);
+}
+
+.header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-weight: bold;
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid var(--bord-color);
+}
+
+.moonPhase {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.moonPhase img {
+  width: 100px;
+}
+
+.moonPhaseName {
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin: 0.25rem 0;
+}
+
+.nextMoonPhases {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.nextMoon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.nextMoonImg img {
+  width: 30px;
+}
+
+.nextMoonDate {
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.nextMoonName {
+  font-size: 0.625rem;
+  text-align: center;
+  font-weight: 500;
+}

@@ -1,25 +1,29 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --card-bg: #1b1a1d;
+  --bord-color: #e4e4e41e;
+  --main-card: #4a4a4a;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #101014;
     --foreground: #ededed;
   }
 }
 
 html,
 body {
-  max-width: 100vw;
+  max-width: 1440px;
+  margin: 0 auto;
   overflow-x: hidden;
 }
 
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Montserrat", Arial, Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
