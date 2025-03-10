@@ -1,16 +1,7 @@
+import weekdays from "@/utils/objects";
 import styles from "@/components/weekly_forecasts/Forecasts.module.css";
 
 const WeeklyForecasts = ({ data }) => {
-  const weekdays = {
-    Seg: "Segunda-feira",
-    Ter: "Terça-feira",
-    Qua: "Quarta-feira",
-    Qui: "Quinta-feira",
-    Sex: "Sexta-feira",
-    Sab: "Sábado",
-    Dom: "Domingo",
-  };
-
   const assetsUrl = "https://assets.hgbrasil.com/weather/icons/conditions";
 
   return (

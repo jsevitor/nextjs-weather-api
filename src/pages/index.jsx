@@ -9,6 +9,7 @@ import MoonPhase from "@/components/moon_phase/index.jsx";
 import "leaflet/dist/leaflet.css";
 
 import styles from "@/styles/Home.module.css";
+import TodayForecast from "@/components/today_forecast";
 
 const Map = dynamic(() => import("@/components/map/index.jsx"), {
   ssr: false,
@@ -40,7 +41,8 @@ const Home = () => {
       <ForecastMenu />
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <WeeklyForecasts data={data} />
+          <TodayForecast data={data} />
+          {/* <WeeklyForecasts data={data} /> */}
         </div>
         <div className={styles.rightContainer}>
           <MoonPhase data={data} />

@@ -4,6 +4,8 @@
   --card-bg: #1b1a1d;
   --bord-color: #e4e4e41e;
   --main-card: #4a4a4a;
+  --max: #e2251a;
+  --min: #0380cc;
 }
 
 @media (prefers-color-scheme: dark) {

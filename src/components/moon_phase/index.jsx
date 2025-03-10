@@ -6,11 +6,11 @@ const MoonPhase = ({ data }) => {
   const moonPhases = {
     new_moon: "Nova",
     waxing_crescent: "Crescente",
-    first_quarter: "Quarto Crescente",
-    waxing_gibbous: "Gibosa Crescente",
-    full_moon: "Cheia",
-    waning_gibbous: "Gibosa Minguante",
-    last_quarter: "Quarto Minguante",
+    first_quarter: "Crescente",
+    waxing_gibbous: "Crescente",
+    full: "Cheia",
+    waning_gibbous: "Minguante",
+    last_quarter: "Minguante",
     waning_crescent: "Minguante",
   };
 

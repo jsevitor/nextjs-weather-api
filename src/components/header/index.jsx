@@ -5,12 +5,7 @@ const Header = ({ cityName }) => {
   return (
     <header className={styles.header}>
       <div className={styles.headerInfo}>
-        <div className={styles.location}>
-          <span>
-            <i className="bi bi-geo-alt-fill"></i>
-          </span>
-          <span>{cityName}</span>
-        </div>
+        <div className={styles.logo}>SMART CLIMA</div>
       </div>
       <div className={styles.searchBar}>
         <div className={styles.searchBarContainer}>

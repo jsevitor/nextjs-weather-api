@@ -16,14 +16,14 @@
 }
 
 .leftContainer {
-  flex: 1;
+  width: 1100px;
+  height: 280px;
   display: flex;
   flex-direction: column;
   gap: 3rem;
 }
 
 .rightContainer {
-  flex: 0;
   max-width: 430px;
   width: 100%;
   display: flex;
