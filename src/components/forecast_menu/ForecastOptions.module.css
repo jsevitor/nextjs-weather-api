@@ -4,3 +4,12 @@
   margin-top: 1rem;
   padding: 1rem 2rem;
 }
+
+.forecastOptions div {
+  cursor: pointer;
+  transition: font-weight 0.3s ease;
+}
+
+.bold {
+  font-weight: bold;
+}

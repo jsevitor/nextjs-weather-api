@@ -1,0 +1,59 @@
+.weeklyForecast {
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+/* DAILY FORECAST */
+.dailyForecast {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 0.5rem;
+  width: 100px;
+  border-radius: 1rem;
+  background-color: var(--card-bg);
+}
+
+.dailyForecastWeekday {
+  padding: 0 1rem 1rem;
+  border-bottom: 1px solid var(--bord-color);
+  font-weight: bold;
+}
+
+.dailyForecastDate {
+  font-size: 0.875rem;
+}
+
+.dailyForecastWeatherIcon img {
+  width: 60px;
+  height: 60px;
+}
+
+.dailyForecastDescription {
+  text-align: center;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.dailyForecastTemps {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  font-size: 0.875rem;
+}
+
+.tempMax,
+.tempMin {
+  font-weight: bold;
+}
+
+.tempMax {
+  color: tomato;
+}
+
+.tempMin {
+  color: lightskyblue;
+}

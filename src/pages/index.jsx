@@ -10,6 +10,7 @@ import "leaflet/dist/leaflet.css";
 
 import styles from "@/styles/Home.module.css";
 import TodayForecast from "@/components/today_forecast";
+import TomorrowForecast from "@/components/tomorrow_forecast";
 
 const Map = dynamic(() => import("@/components/map/index.jsx"), {
   ssr: false,
@@ -18,6 +19,7 @@ const Map = dynamic(() => import("@/components/map/index.jsx"), {
 const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
+  const [selectedOption, setSelectedOption] = useState("today");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,11 +40,15 @@ const Home = () => {
   return (
     <>
       <Header cityName={data && data.results.city} />
-      <ForecastMenu />
+      <ForecastMenu
+        selectedOption={selectedOption}
+        setSelectedOption={setSelectedOption}
+      />
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <TodayForecast data={data} />
-          {/* <WeeklyForecasts data={data} /> */}
+          {selectedOption === "today" && <TodayForecast data={data} />}
+          {selectedOption === "tomorrow" && <TomorrowForecast data={data} />}
+          {selectedOption === "nextSeven" && <WeeklyForecasts data={data} />}
         </div>
         <div className={styles.rightContainer}>
           <MoonPhase data={data} />
