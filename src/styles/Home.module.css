@@ -17,10 +17,9 @@
 
 .leftContainer {
   width: 1100px;
-  height: 280px;
   display: flex;
   flex-direction: column;
-  gap: 3rem;
+  gap: 2rem;
 }
 
 .rightContainer {

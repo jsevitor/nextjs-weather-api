@@ -11,6 +11,8 @@ import "leaflet/dist/leaflet.css";
 import styles from "@/styles/Home.module.css";
 import TodayForecast from "@/components/today_forecast";
 import TomorrowForecast from "@/components/tomorrow_forecast";
+import RainProbabilityChart from "@/components/rain_probability_chart";
+import RainAccumulationChart from "@/components/rain_accumulation_chart";
 
 const Map = dynamic(() => import("@/components/map/index.jsx"), {
   ssr: false,
@@ -57,10 +59,12 @@ const Home = () => {
 
       <div className={styles.container}>
         <div className={styles.leftContainer}>
-          <Map />
+          <Map lat={-14.235} long={-51.9253} />
         </div>
         <div className={styles.rightContainer}>
-          <MoonPhase data={data} />
+          {/* <MoonPhase data={data} /> */}
+          <RainProbabilityChart data={data} />
+          <RainAccumulationChart data={data} />
         </div>
       </div>
 
