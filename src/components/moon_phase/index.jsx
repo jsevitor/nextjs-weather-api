@@ -30,7 +30,7 @@ const MoonPhase = ({ data }) => {
       </div>
       <div className={styles.nextMoonPhases}>
         {data &&
-          data.results.forecast.slice(1, 5).map((forecast, index) => (
+          data.results.forecast.slice(1, 6).map((forecast, index) => (
             <div key={index} className={styles.nextMoon}>
               <div className={styles.nextMoonImg}>
                 <img

@@ -20,24 +20,14 @@ const Map = ({ lat, long }) => {
     { name: "Curitiba", lat: -25.4296, lon: -49.2719 },
     { name: "Porto Alegre", lat: -30.0346, lon: -51.2177 },
     { name: "Palmas", lat: -10.1963, lon: -48.3342 },
-    // { name: "Macapá", lat: 0.035, lon: -51.07 },
     { name: "Rio Branco", lat: -9.97499, lon: -67.8243 },
     { name: "Florianópolis", lat: -27.5954, lon: -48.548 },
     { name: "Campo Grande", lat: -20.4697, lon: -54.6201 },
-    { name: "Belém", lat: -1.455, lon: -48.4902 },
     { name: "Recife", lat: -8.0476, lon: -34.877 },
-    // { name: "Aracaju", lat: -10.9472, lon: -37.0731 },
-    // { name: "São Luís", lat: -2.5307, lon: -44.3028 },
-    // { name: "Maceió", lat: -9.6659, lon: -35.735 },
-    // { name: "Natal", lat: -5.7945, lon: -35.211 },
-    // { name: "João Pessoa", lat: -7.1195, lon: -34.845 },
     { name: "Teresina", lat: -5.0891, lon: -42.8047 },
     { name: "Belém", lat: -1.455, lon: -48.4902 },
     { name: "Vitoria", lat: -20.3155, lon: -40.3128 },
-    { name: "Goiânia", lat: -16.6864, lon: -49.2643 },
-    { name: "Cuiabá", lat: -15.601, lon: -56.097 },
     { name: "Boa Vista", lat: 2.8235, lon: -60.6753 },
-    { name: "Palmas", lat: -10.1963, lon: -48.3342 },
   ];
 
   useEffect(() => {
@@ -60,7 +50,6 @@ const Map = ({ lat, long }) => {
             lon: cities[index].lon,
           };
         });
-        console.log(weatherData);
         setWeatherData(weatherData);
       } catch (error) {
         console.error("Erro ao buscar a previsão do tempo", error);
@@ -89,6 +78,12 @@ const Map = ({ lat, long }) => {
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
+
+      <TileLayer
+        url="https://stamen-tiles.a.ssl.fastly.net/satellite/{z}/{x}/{y}.jpg"
+        attribution='&copy; <a href="https://stamen.com">Stamen</a>'
+      />
+
       {/* Exibindo os marcadores com labels de temperatura */}
       {weatherData.map((cityData) => (
         <Marker

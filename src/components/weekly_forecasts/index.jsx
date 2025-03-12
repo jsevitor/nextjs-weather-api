@@ -5,7 +5,7 @@ const WeeklyForecasts = ({ data }) => {
   const assetsUrl = "https://assets.hgbrasil.com/weather/icons/conditions";
 
   return (
-    <div className={styles.weeklyForecast}>
+    <div className={styles.container}>
       {data &&
         data.results.forecast.slice(1, 8).map((forecast, index) => (
           <div key={index} className={styles.dailyForecast}>
@@ -25,8 +25,14 @@ const WeeklyForecasts = ({ data }) => {
               {forecast.description}
             </div>
             <div className={styles.dailyForecastTemps}>
-              <div className={styles.tempMax}>{forecast.max} ºC</div>
-              <div className={styles.tempMin}>{forecast.min} ºC</div>
+              <div className={styles.tempMax}>
+                <i className="bi bi-arrow-up"></i>
+                {forecast.max} ºC
+              </div>
+              <div className={styles.tempMin}>
+                <i className="bi bi-arrow-down"></i>
+                {forecast.min} ºC
+              </div>
             </div>
           </div>
         ))}

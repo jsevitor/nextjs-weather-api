@@ -1,7 +1,22 @@
 import styles from "@/components/header/Header.module.css";
-import { actualDate } from "@/utils/functions";
+import { useState } from "react";
 
-const Header = ({ cityName }) => {
+const Header = ({ setCityName }) => {
+  const [searchInput, setSearchInput] = useState("");
+
+  const handleSearch = () => {
+    if (searchInput.trim()) {
+      setCityName(searchInput);
+      setSearchInput("");
+    }
+  };
+
+  const handleKeyPress = (e) => {
+    if (e.key == "Enter") {
+      handleSearch();
+    }
+  };
+
   return (
     <header className={styles.header}>
       <div className={styles.headerInfo}>
@@ -10,9 +25,16 @@ const Header = ({ cityName }) => {
       <div className={styles.searchBar}>
         <div className={styles.searchBarContainer}>
           <span>
-            <i className="bi bi-search"></i>
+            <i className="bi bi-search" onClick={handleSearch}></i>{" "}
+            {/* Ação de clique */}
           </span>
-          <input type="text" placeholder="Buscar cidade..." />
+          <input
+            type="text"
+            placeholder="Buscar cidade..."
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+            onKeyPress={handleKeyPress}
+          />
         </div>
       </div>
       <div className={styles.toogleTheme}>
