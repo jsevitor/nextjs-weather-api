@@ -1,4 +1,3 @@
-import weekdays from "@/utils/objects";
 import styles from "@/components/weekly_forecasts/WeeklyForecasts.module.css";
 
 const WeeklyForecasts = ({ data }) => {

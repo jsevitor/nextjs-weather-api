@@ -9,7 +9,7 @@ import TomorrowForecast from "@/components/tomorrow_forecast";
 import RainProbabilityChart from "@/components/rain_probability_chart";
 import RainAccumulationChart from "@/components/rain_accumulation_chart";
 import Location from "@/components/location";
-import FavoriteCities from "@/components/favorite_cities";
+// import FavoriteCities from "@/components/favorite_cities";
 import Footer from "@/components/footer";
 
 import "leaflet/dist/leaflet.css";
@@ -34,6 +34,23 @@ const Home = () => {
       console.error(error);
     }
   };
+
+  // Recupera a cidade salva no localStorage ao carregar a página
+  useEffect(() => {
+    const savedCity = localStorage.getItem("cityName");
+    if (savedCity) {
+      setCityName(savedCity);
+    } else {
+      setCityName("São Paulo"); // Cidade padrão
+    }
+  }, []);
+
+  // Salva a cidade pesquisada no localStorage
+  useEffect(() => {
+    if (cityName) {
+      localStorage.setItem("cityName", cityName);
+    }
+  }, [cityName]);
 
   useEffect(() => {
     if (geolocation) {
@@ -66,7 +83,7 @@ const Home = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.leftContainer}>
-            <Map lat={-14.235} long={-51.9253} />
+            <Map lat={-14.235} long={-51.9253} geolocation={geolocation} />
           </div>
           <div className={styles.rightContainer}>
             <RainProbabilityChart data={data} />

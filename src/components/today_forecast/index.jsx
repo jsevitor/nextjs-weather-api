@@ -1,4 +1,4 @@
-import weekdays from "@/utils/objects";
+import { weekdays } from "@/utils/resources";
 import styles from "@/components/today_forecast/TodayForecast.module.css";
 
 const TodayForecast = ({ data }) => {
