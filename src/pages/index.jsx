@@ -8,12 +8,12 @@ import TodayForecast from "@/components/today_forecast";
 import TomorrowForecast from "@/components/tomorrow_forecast";
 import RainProbabilityChart from "@/components/rain_probability_chart";
 import RainAccumulationChart from "@/components/rain_accumulation_chart";
+import Location from "@/components/location";
+import FavoriteCities from "@/components/favorite_cities";
+import Footer from "@/components/footer";
 
 import "leaflet/dist/leaflet.css";
 import styles from "@/styles/Home.module.css";
-import Footer from "@/components/footer";
-import FavoriteCities from "@/components/favorite_cities";
-import Location from "@/components/location";
 
 const Map = dynamic(() => import("@/components/map/index.jsx"), {
   ssr: false,
@@ -45,8 +45,6 @@ const Home = () => {
     }
   }, [cityName, geolocation]);
 
-  console.log("Geolocation:", geolocation);
-
   return (
     <>
       <Location setGeolocation={setGeolocation} />
@@ -75,9 +73,7 @@ const Home = () => {
             <RainAccumulationChart data={data} />
           </div>
         </div>
-        <div className={styles.container}>
-          <FavoriteCities />
-        </div>
+        <div className={styles.container}>{/* <FavoriteCities /> */}</div>
       </div>
       <Footer />
     </>

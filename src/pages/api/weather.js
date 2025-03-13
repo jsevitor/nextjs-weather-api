@@ -2,7 +2,7 @@ import axios from "axios";
 
 export default async function handler(req, res) {
   const { city_name, lat, long } = req.query;
-  const apiUrl = "https://api.hgbrasil.com/weather?key=b067a519";
+  const apiUrl = "https://api.hgbrasil.com/weather?key=4658826f";
 
   try {
     let url = apiUrl;

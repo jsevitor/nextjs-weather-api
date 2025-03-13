@@ -61,3 +61,11 @@
   text-align: center;
   font-weight: 500;
 }
+
+@media screen and (max-width: 1000px) {
+  .container {
+    gap: 1rem;
+  }
+}
+/* @media screen and (max-width: 768px) {
+} */

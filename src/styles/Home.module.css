@@ -36,3 +36,19 @@
   flex-direction: column;
   gap: 2rem;
 }
+
+@media screen and (max-width: 1000px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .leftContainer {
+    width: 100%;
+  }
+
+  .rightContainer {
+    max-width: 768px;
+  }
+}
+/* @media screen and (max-width: 768px) {
+} */

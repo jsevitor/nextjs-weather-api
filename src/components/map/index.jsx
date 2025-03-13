@@ -4,7 +4,7 @@ import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import axios from "axios";
 
-import styles from "@/components/map/MapUpdate.module.css"; // Certifique-se de que esse arquivo CSS está corretamente configurado
+import styles from "@/components/map/Map.module.css"; // Certifique-se de que esse arquivo CSS está corretamente configurado
 
 const Map = ({ lat, long }) => {
   const [weatherData, setWeatherData] = useState([]);
@@ -79,7 +79,7 @@ const Map = ({ lat, long }) => {
   };
 
   return (
-    <div style={{ position: "relative", height: "100%" }}>
+    <div className={styles.container}>
       <MapContainer
         center={[lat, long]}
         zoom={4}

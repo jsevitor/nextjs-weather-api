@@ -6,6 +6,8 @@
   --main-card: #4a4a4a;
   --max: #e2251a;
   --min: #0380cc;
+
+  --respo: 1000px;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -44,5 +46,11 @@ a {
 @media (prefers-color-scheme: dark) {
   html {
     color-scheme: dark;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  html {
+    font-size: 85%;
   }
 }

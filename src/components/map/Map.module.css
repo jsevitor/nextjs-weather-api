@@ -1,12 +1,6 @@
-.header {
-  display: flex;
-  gap: 1rem;
-  margin-bottom: -1rem;
-}
-
-.header span {
-  font-weight: 500;
-  color: #f4f4f4;
+.container {
+  position: relative;
+  height: 100%;
 }
 
 .update {
@@ -34,3 +28,12 @@
 .update i {
   font-size: 1.2rem;
 }
+
+@media screen and (max-width: 1000px) {
+  .container {
+    height: 50vh;
+    flex-direction: column;
+  }
+}
+/* @media screen and (max-width: 768px) {
+} */

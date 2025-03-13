@@ -19,11 +19,9 @@ const Header = ({ setCityName }) => {
 
   return (
     <header className={styles.header}>
-      <div className={styles.headerInfo}>
-        <div className={styles.logo}>SMART CLIMA</div>
-      </div>
-      <div className={styles.searchBar}>
-        <div className={styles.searchBarContainer}>
+      <div className={styles.logo}>SMART CLIMA</div>
+      <div className={styles.searchBarContainer}>
+        <div className={styles.searchBar}>
           <span>
             <i className="bi bi-search" onClick={handleSearch}></i>{" "}
             {/* Ação de clique */}
