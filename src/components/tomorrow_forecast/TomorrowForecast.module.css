@@ -98,3 +98,24 @@
   display: flex;
   gap: 0.5rem;
 }
+
+@media screen and (max-width: 820px) {
+  .weather {
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1rem;
+  }
+
+  .weatherInfo {
+    width: 100%;
+  }
+
+  .weatherDescription {
+    font-size: 1.2rem;
+    margin-top: -1rem;
+  }
+
+  .weatherDetails {
+    width: 100%;
+  }
+}

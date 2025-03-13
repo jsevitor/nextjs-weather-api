@@ -5,11 +5,12 @@ import L from "leaflet";
 import axios from "axios";
 
 import "leaflet/dist/leaflet.css";
-import styles from "@/components/map/Map.module.css"; // Certifique-se de que esse arquivo CSS está corretamente configurado
+import styles from "@/components/map/Map.module.css";
 
 const Map = ({ lat, long, geolocation }) => {
   const [weatherData, setWeatherData] = useState([]);
 
+  // Função para buscar os dados do clima
   const fetchWeather = async () => {
     const requests = cities.map((city) =>
       axios.get(`/api/weather?city_name=${city.name}`)
@@ -36,10 +37,13 @@ const Map = ({ lat, long, geolocation }) => {
     }
   };
 
+  // Função para carregar os dados do localStorage
   const loadWeatherData = () => {
     const storedData = localStorage.getItem("weatherData");
     if (storedData) {
       setWeatherData(JSON.parse(storedData));
+    } else {
+      fetchWeather();
     }
   };
 
@@ -72,29 +76,30 @@ const Map = ({ lat, long, geolocation }) => {
           attribution='&copy; <a href="https://stamen.com">Stamen</a>'
         />
 
-        {weatherData.map((cityData) => (
-          <Marker
-            key={cityData.name}
-            position={[cityData.lat, cityData.lon]}
-            icon={handleCustumIcon(cityData.condition)}
-          >
-            <Popup>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                }}
-              >
-                <span style={{ fontWeight: "500" }}>{cityData.name}</span>
-                <span style={{ fontWeight: "bold", fontSize: "1rem" }}>
-                  {cityData.temp}°C
-                </span>
-                <span>{cityData.description}</span>
-              </div>
-            </Popup>
-          </Marker>
-        ))}
+        {Array.isArray(weatherData) &&
+          weatherData.map((cityData) => (
+            <Marker
+              key={cityData.name}
+              position={[cityData.lat, cityData.lon]}
+              icon={handleCustumIcon(cityData.condition)}
+            >
+              <Popup>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                  }}
+                >
+                  <span style={{ fontWeight: "500" }}>{cityData.name}</span>
+                  <span style={{ fontWeight: "bold", fontSize: "1rem" }}>
+                    {cityData.temp}°C
+                  </span>
+                  <span>{cityData.description}</span>
+                </div>
+              </Popup>
+            </Marker>
+          ))}
 
         {geolocation && (
           <Marker

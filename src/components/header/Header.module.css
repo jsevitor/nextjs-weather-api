@@ -33,6 +33,7 @@
   background: none;
   outline: none;
   font-size: 1rem;
+  color: var(--foreground);
 }
 
 @media screen and (max-width: 820px) {
