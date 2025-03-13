@@ -1,0 +1,15 @@
+.container {
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+}
+
+.attribution {
+  font-size: 0.75rem;
+  text-align: center;
+  color: #efefef5e;
+}
+.attribution a {
+  font-size: 0.75rem;
+  padding-bottom: 0.5rem;
+  color: #3e52a3;
+}

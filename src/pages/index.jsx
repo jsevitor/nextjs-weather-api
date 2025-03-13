@@ -11,6 +11,9 @@ import RainAccumulationChart from "@/components/rain_accumulation_chart";
 
 import "leaflet/dist/leaflet.css";
 import styles from "@/styles/Home.module.css";
+import Footer from "@/components/footer";
+import FavoriteCities from "@/components/favorite_cities";
+import Location from "@/components/location";
 
 const Map = dynamic(() => import("@/components/map/index.jsx"), {
   ssr: false,
@@ -20,10 +23,11 @@ const Home = () => {
   const [data, setData] = useState(null);
   const [selectedOption, setSelectedOption] = useState("today");
   const [cityName, setCityName] = useState("");
+  const [geolocation, setGeolocation] = useState(null);
 
   const fetchData = async (city) => {
     try {
-      const response = await fetch(`api/weather?city_name=${city}`);
+      const response = await fetch(`/api/weather?city_name=${city}`);
       const data = await response.json();
       setData(data);
     } catch (error) {
@@ -31,22 +35,21 @@ const Home = () => {
     }
   };
 
-  // Carregar cidade do localStorage quando o componente for montado
-  // useEffect(() => {
-  //   const savedCity = localStorage.getItem("cityName");
-  //   if (savedCity) {
-  //     setCityName(savedCity);
-  //     fetchData(savedCity);
-  //   }
-  // }, []);
-
   useEffect(() => {
-    const cityToFetch = cityName || "São Paulo";
-    fetchData(cityToFetch);
-  }, [cityName]);
+    if (geolocation) {
+      const { latitude, longitude } = geolocation;
+      fetchData(`lat=${latitude}&long=${longitude}`);
+    } else {
+      const cityToFetch = cityName || "São Paulo";
+      fetchData(cityToFetch);
+    }
+  }, [cityName, geolocation]);
+
+  console.log("Geolocation:", geolocation);
 
   return (
     <>
+      <Location setGeolocation={setGeolocation} />
       <Header setCityName={setCityName} />
       <div className={styles.mainContainer}>
         <ForecastMenu
@@ -72,7 +75,11 @@ const Home = () => {
             <RainAccumulationChart data={data} />
           </div>
         </div>
+        <div className={styles.container}>
+          <FavoriteCities />
+        </div>
       </div>
+      <Footer />
     </>
   );
 };

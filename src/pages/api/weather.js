@@ -1,11 +1,19 @@
 import axios from "axios";
 
 export default async function handler(req, res) {
-  const { city_name } = req.query;
+  const { city_name, lat, long } = req.query;
   const apiUrl = "https://api.hgbrasil.com/weather?key=b067a519";
 
   try {
-    const url = city_name ? `${apiUrl}&city_name=${city_name}` : apiUrl;
+    let url = apiUrl;
+
+    // Se lat e long forem fornecidos, use-as para a consulta
+    if (lat && long) {
+      url = `${apiUrl}&lat=${lat}&lon=${long}`;
+    } else if (city_name) {
+      // Caso contrário, use a cidade fornecida
+      url = `${apiUrl}&city_name=${city_name}`;
+    }
 
     const response = await axios.get(url);
     res.status(200).json(response.data);
