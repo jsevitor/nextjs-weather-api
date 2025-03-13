@@ -52,7 +52,7 @@ const RainProbabilityChart = ({ data }) => {
       },
       legend: {
         labels: {
-          color: "#ededed",
+          color: "#aeaeae",
           font: {
             size: 12,
           },

@@ -6,7 +6,7 @@
 .attribution {
   font-size: 0.75rem;
   text-align: center;
-  color: #efefef5e;
+  color: var(--footer);
 }
 .attribution a {
   font-size: 0.75rem;

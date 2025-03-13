@@ -1,5 +1,6 @@
-import styles from "@/components/header/Header.module.css";
 import { useState } from "react";
+import ToggleTheme from "../toggle_theme";
+import styles from "@/components/header/Header.module.css";
 
 const Header = ({ setCityName }) => {
   const [searchInput, setSearchInput] = useState("");
@@ -24,7 +25,6 @@ const Header = ({ setCityName }) => {
         <div className={styles.searchBar}>
           <span>
             <i className="bi bi-search" onClick={handleSearch}></i>{" "}
-            {/* Ação de clique */}
           </span>
           <input
             type="text"
@@ -35,8 +35,8 @@ const Header = ({ setCityName }) => {
           />
         </div>
       </div>
-      <div className={styles.toogleTheme}>
-        <div>Toogle Tema</div>
+      <div className={styles.toggleTheme}>
+        <ToggleTheme />
       </div>
     </header>
   );

@@ -1,20 +1,22 @@
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f3f3f3;
+  --foreground: #343436;
+  --footer: #34343680;
+  --card-bg: #e5e5e5;
+  --bord-color: #72717159;
+  --main-card: #e2e1e4;
+  --max: #e2251a;
+  --min: #0380cc;
+}
+
+[data-theme="dark"] {
+  --background: #101014;
+  --foreground: #ededed;
+  --footer: #ededed80;
   --card-bg: #2b2a2d;
   --bord-color: #e4e4e41e;
   --main-card: #4a4a4a;
-  --max: #e2251a;
-  --min: #0380cc;
-
-  --respo: 1000px;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #101014;
-    --foreground: #ededed;
-  }
+  --active: #cbcbcb;
 }
 
 html,
@@ -41,12 +43,6 @@ body {
 a {
   color: inherit;
   text-decoration: none;
-}
-
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
 }
 
 @media screen and (max-width: 480px) {

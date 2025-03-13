@@ -1,0 +1,34 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-self: center;
+
+  border-radius: 2rem;
+  border: 1px solid var(--main-card);
+}
+
+.container span {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.container span:hover {
+  background-color: var(--main-card);
+  color: var(--foregorund);
+}
+
+.container i {
+  font-size: 1.2rem;
+  padding: 1rem;
+}
+
+.selected {
+  border-radius: 2rem;
+  background-color: var(--main-card);
+}

@@ -51,7 +51,7 @@ const RainAccumulationChart = ({ data }) => {
       },
       legend: {
         labels: {
-          color: "#ededed",
+          color: "#aeaeae",
           font: {
             size: 12,
           },
