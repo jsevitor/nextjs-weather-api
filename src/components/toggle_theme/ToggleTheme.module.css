@@ -32,3 +32,9 @@
   border-radius: 2rem;
   background-color: var(--main-card);
 }
+
+@media screen and (max-width: 820px) {
+  .container {
+    display: none;
+  }
+}

@@ -1,40 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Previsão do Tempo - Aplicação de Previsão Climática
 
-## Getting Started
+Previsão do Tempo é uma aplicação web desenvolvida para fornecer previsões climáticas atualizadas para diversas cidades, além de mostrar gráficos de probabilidade de chuva e acúmulo de chuva. O projeto é alimentado por uma API externa de previsão do tempo, e a interface oferece uma navegação intuitiva para os usuários visualizarem as informações de forma clara e precisa.
 
-First, run the development server:
+Demonstração
 
-```bash
+Acesse a aplicação ao vivo: https://seulink.com
+
+Funcionalidades
+Previsão Atual: Exibe a previsão do tempo para o dia atual, incluindo temperatura, descrição do clima, umidade, etc.
+Previsão para o Próximo Dia: Mostra a previsão para o dia seguinte, com informações semelhantes à previsão atual.
+Previsão Semanal: Exibe as previsões climáticas para os próximos sete dias.
+Mapas Interativos: Visualize um mapa com a localização e as condições climáticas de diversas cidades.
+Gráficos de Probabilidade de Chuva e Acúmulo: Mostra gráficos para visualização das probabilidades de chuva e previsão de acúmulo de chuva.
+Tecnologias Utilizadas
+Frontend:
+React.js com Next.js para a construção da interface do usuário.
+CSS Modules para estilização isolada dos componentes.
+Leaflet para mapas interativos.
+Chart.js para gráficos de probabilidade e acúmulo de chuva.
+Backend:
+Node.js para o servidor e lógica de negócios.
+Integração com uma API de previsão do tempo externa para obter as informações climáticas.
+Como Executar o Projeto Localmente
+Pré-requisitos:
+Node.js instalado na máquina.
+Chave de API válida para o serviço de previsão do tempo (ex: OpenWeather, WeatherAPI, etc.).
+Passos:
+Clone o repositório:
+
+bash
+Copiar
+git clone https://github.com/seu-usuario/previsao-do-tempo.git
+cd previsao-do-tempo
+Instale as dependências:
+
+bash
+Copiar
+npm install
+Configure a chave da API: Crie um arquivo .env na raiz do projeto e adicione sua chave de API para o serviço de previsão do tempo:
+
+env
+Copiar
+WEATHER_API_KEY=sua_chave_aqui
+Inicie o servidor de desenvolvimento:
+
+bash
+Copiar
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Acesse a aplicação em: http://localhost:3000
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Melhorias Futuras
+Implementação de Autenticação: Permitir que os usuários salvem suas cidades favoritas e preferências.
+Suporte a Mais Tipos de Dados Climáticos: Adicionar mais dados climáticos como velocidade do vento, pressão atmosférica, etc.
+Otimização da Performance: Melhorar o tempo de resposta durante a análise das previsões.
+Suporte a Múltiplos Idiomas: Implementar tradução para outros idiomas.
+Contribuição
+Contribuições são bem-vindas! Se você tiver sugestões ou melhorias, sinta-se à vontade para abrir uma issue ou enviar um pull request.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+Colaboradores
+José Vitor Oliveira: Desenvolvedor responsável pela implementação da aplicação, integração com a API de previsão do tempo e funcionalidades do frontend.
+Licença
+Este projeto está licenciado sob a MIT License - consulte o arquivo LICENSE para mais detalhes.
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+Contato
+Caso queira entrar em contato, me encontre em:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+LinkedIn: linkedin.com/in/josevitoroliveira
+E-mail: vitorjseo@gmail.com
