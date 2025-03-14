@@ -48,8 +48,8 @@ const Map = ({ lat, long, geolocation }) => {
   };
 
   useEffect(() => {
-    loadWeatherData();
-  }, []);
+    loadWeatherData(); // Carregar os dados do localStorage ou fazer a requisição
+  }, []); // O array vazio garante que a requisição será feita apenas uma vez
 
   const handleCustumIcon = (condition) => {
     return new L.Icon({

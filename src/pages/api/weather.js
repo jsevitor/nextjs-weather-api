@@ -1,17 +1,19 @@
 import axios from "axios";
+import  dotenv  from "dotenv";
+
+dotenv.config()
 
 export default async function handler(req, res) {
   const { city_name, lat, long } = req.query;
-  const apiUrl = "https://api.hgbrasil.com/weather?key=4658826f";
+
+  const API_KEY = process.env.API_KEY
+  const apiUrl = `https://api.hgbrasil.com/weather?key=${API_KEY}`;
 
   try {
     let url = apiUrl;
-
-    // Se lat e long forem fornecidos, use-as para a consulta
     if (lat && long) {
       url = `${apiUrl}&lat=${lat}&lon=${long}`;
     } else if (city_name) {
-      // Caso contrário, use a cidade fornecida
       url = `${apiUrl}&city_name=${city_name}`;
     }
 
