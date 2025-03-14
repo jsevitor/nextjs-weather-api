@@ -9,7 +9,6 @@ import TomorrowForecast from "@/components/tomorrow_forecast";
 import RainProbabilityChart from "@/components/rain_probability_chart";
 import RainAccumulationChart from "@/components/rain_accumulation_chart";
 import Location from "@/components/location";
-// import FavoriteCities from "@/components/favorite_cities";
 import Footer from "@/components/footer";
 
 import "leaflet/dist/leaflet.css";
@@ -52,15 +51,34 @@ const Home = () => {
     }
   }, [cityName]);
 
+  // Função para obter a geolocalização do usuário
   useEffect(() => {
-    if (geolocation) {
-      const { latitude, longitude } = geolocation;
-      fetchData(`lat=${latitude}&long=${longitude}`);
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        (position) => {
+          const { latitude, longitude } = position.coords;
+          setGeolocation({ lat: latitude, long: longitude });
+        },
+        (error) => {
+          console.error(error);
+          // Você pode definir um valor padrão caso a geolocalização falhe
+          setGeolocation({ lat: -14.235, long: -51.9253 }); // Padrão para o Brasil
+        }
+      );
     } else {
-      const cityToFetch = cityName || "São Paulo";
-      fetchData(cityToFetch);
+      console.log("Geolocalização não é suportada pelo navegador.");
     }
-  }, [cityName, geolocation]);
+  }, []);
+
+  // Atualiza os dados da previsão do tempo com base na cidade ou geolocalização
+  useEffect(() => {
+    if (cityName) {
+      fetchData(cityName); // Busca dados para a cidade pesquisada
+    } else if (geolocation) {
+      const { lat, long } = geolocation;
+      fetchData(`lat=${lat}&long=${long}`); // Busca dados para a geolocalização
+    }
+  }, [cityName, geolocation]); // Aciona sempre que cityName ou geolocation mudar
 
   return (
     <>
@@ -83,7 +101,11 @@ const Home = () => {
         </div>
         <div className={styles.container}>
           <div className={styles.leftContainer}>
-            <Map lat={-14.235} long={-51.9253} geolocation={geolocation} />
+            <Map
+              lat={geolocation?.lat || -14.235}
+              long={geolocation?.long || -51.9253}
+              geolocation={geolocation}
+            />
           </div>
           <div className={styles.rightContainer}>
             <RainProbabilityChart data={data} />
